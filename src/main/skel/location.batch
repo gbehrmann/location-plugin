@@ -1,0 +1,18 @@
+#
+# location service
+#
+
+onerror shutdown
+
+check -strong cell.name
+check -strong port
+check -strong pnfsmanager
+
+onerror continue
+
+create org.dcache.cells.UniversalSpringCell ${cell.name} \
+       "classpath:org/dcache/location/location.xml -export\
+       -cellClass=LocationService \
+       -pnfsmanager=${pnfsmanager} \
+       -port=${port} \
+       "

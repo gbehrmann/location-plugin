@@ -1,0 +1,57 @@
+<!--
+
+    Copyright (C) 2013 dCache.org <support@dcache.org>
+
+    This file is part of dcache-location-service.
+
+    dcache-location-service is free software: you can redistribute it and/or
+    modify it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    dcache-location-service is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public
+    License along with dcache-location-service.  If not, see
+    <http://www.gnu.org/licenses/>.
+
+-->
+<assembly>
+    <id>tarball</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <dependencySets>
+        <dependencySet>
+            <excludes>
+                <exclude>org.dcache:dcache-core:jar:*</exclude>
+                <exclude>org.scala-lang:scala-library:jar:*</exclude>
+            </excludes>
+            <useProjectArtifact>true</useProjectArtifact>
+            <useTransitiveFiltering>true</useTransitiveFiltering>
+        </dependencySet>
+    </dependencySets>
+
+    <fileSets>
+        <fileSet>
+            <includes>
+                <include>README*</include>
+                <include>LICENSE*</include>
+                <include>NOTICE*</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+          <directory>src/main/skel</directory>
+          <outputDirectory></outputDirectory>
+          <includes>
+            <include>*.properties</include>
+            <include>*.batch</include>
+          </includes>
+        </fileSet>
+    </fileSets>
+</assembly>
